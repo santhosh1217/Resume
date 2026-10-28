@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santhosh M - Software Engineer Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      --primary: #0f172a;
+      --secondary: #334155;
+      --accent: #1d4ed8;
+      --border: #cbd5e1;
+      --text: #1e293b;
+      --muted: #475569;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background-color: #f1f5f9;
+      line-height: 1.37;
+      font-size: 8.95pt;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Container perfectly filling A4 without clipping or 2nd page spillover */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      max-height: 297mm;
+      height: 297mm;
+      padding: 11mm 15mm 10mm 15mm;
+      margin: 10px auto;
+      background: #ffffff;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+      overflow: visible;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 7px;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 6px;
+    }
+
+    h1 {
+      font-size: 19.5pt;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+
+    .title {
+      font-size: 10pt;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5px;
+      font-size: 8.5pt;
+      color: var(--muted);
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-bar a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-bar a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .separator {
+      color: #94a3b8;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 0px;
+      /* space-between distributes evenly */
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2.section-title,
+    .section-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--accent);
+      border-bottom: 1.2px solid var(--border);
+      padding-bottom: 1.5px;
+      margin-top: 0;
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    p.summary {
+      color: var(--secondary);
+      text-align: justify;
+      line-height: 1.38;
+      font-size: 8.85pt;
+    }
+
+    /* Skills Table */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.85pt;
+    }
+
+    .skills-table td {
+      padding: 1.8px 0;
+      vertical-align: top;
+    }
+
+    .skill-cat {
+      font-weight: 600;
+      color: var(--primary);
+      width: 135px;
+      white-space: nowrap;
+    }
+
+    .skill-val {
+      color: var(--secondary);
+    }
+
+    /* Experience & Projects */
+    .item {
+      margin-bottom: 5px;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.5px;
+      gap: 8px;
+    }
+
+    .item-company {
+      font-size: 9.4pt;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .item-role {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 9.1pt;
+    }
+
+    .item-title {
+      font-size: 9.1pt;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .item-date,
+    .item-location {
+      font-size: 8.4pt;
+      color: var(--muted);
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .item-tech {
+      font-size: 8.4pt;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    ul.bullets {
+      list-style-type: square;
+      padding-left: 14px;
+      margin-top: 1px;
+    }
+
+    ul.bullets li {
+      margin-bottom: 2.2px;
+      color: var(--secondary);
+      line-height: 1.35;
+      font-size: 8.7pt;
+    }
+
+    ul.bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    ul.bullets li strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Education */
+    .edu-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 8.85pt;
+      margin-bottom: 2px;
+      gap: 8px;
+    }
+
+    .coursework {
+      font-size: 8.35pt;
+      color: var(--muted);
+      line-height: 1.32;
+    }
+
+    /* Certifications */
+    .certs-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+      font-size: 8.2pt;
+      color: var(--secondary);
+      padding-top: 1px;
+      white-space: nowrap;
+    }
+
+    .certs-row span strong {
+      color: var(--primary);
+    }
+
+    .certs-row .separator {
+      color: #94a3b8;
+      font-size: 7.5pt;
+    }
+
+    .live-link {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .live-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Print Guarantee: Exactly 1 page filling space naturally */
+    @media print {
+
+      html,
+      body {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 100% !important;
+        font-size: 8.95pt !important;
+      }
+
+      .page {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100% !important;
+        max-height: 100% !important;
+        padding: 10mm 13mm 9mm 13mm !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        overflow: visible !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      a {
+        text-decoration: none !important;
+        color: inherit !important;
+      }
+
+      .contact-bar a {
+        color: var(--muted) !important;
+      }
+
+      .live-link {
+        color: var(--accent) !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header>
+      <h1>SANTHOSH M</h1>
+      <div class="title">Software Engineer | Full-Stack Developer | MERN</div>
+      <div class="contact-bar">
+        <div class="contact-row">
+          <span>Tirupur, Tamil Nadu, India</span>
+          <span class="separator">•</span>
+          <span>+91 9361208110</span>
+          <span class="separator">•</span>
+          <span><a href="mailto:santhosh1217.dev@gmail.com">santhosh1217.dev@gmail.com</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="separator">•</span>
+          <span><a href="https://santhosh1217.github.io" target="_blank">santhosh1217.github.io</a></span>
+          <span class="separator">•</span>
+          <span><a href="https://linkedin.com/in/santhosh1217" target="_blank">linkedin.com/in/santhosh1217</a></span>
+          <span class="separator">•</span>
+          <span><a href="https://github.com/santhosh1217" target="_blank">github.com/santhosh1217</a></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Profile Summary -->
+    <section>
+      <h2 class="section-title">Profile Summary</h2>
+      <p class="summary">
+        Full-Stack Software Engineer with 2.5+ years of experience architecting scalable web applications using React.js, Node.js, Express.js, and MongoDB. Specialized in Keycloak IAM, OAuth 2.0, OpenID Connect, and RBAC, with expertise in secure RESTful APIs, Docker containerization, and CI/CD. Proven track record automating identity workflows across <strong>250+ higher education institutions</strong> and delivering mission-critical examination and evaluation platforms.
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <h2 class="section-title">Skills</h2>
+      <table class="skills-table">
+        <tr>
+          <td class="skill-cat">Languages:</td>
+          <td class="skill-val">JavaScript (ES6+), Python, Java, C, SQL</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Frontend:</td>
+          <td class="skill-val">React.js, Redux, Context API, Bootstrap, HTML5, CSS3</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Backend & APIs:</td>
+          <td class="skill-val">Node.js, Express.js, Django, RESTful APIs, Microservices Architecture</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Identity & Security:</td>
+          <td class="skill-val">Keycloak (IAM, Realms, Clients, RBAC, SSO, OAuth 2.0, OpenID Connect), JWT</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Databases:</td>
+          <td class="skill-val">MongoDB, MySQL, Mongoose ODM</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">DevOps & Tools:</td>
+          <td class="skill-val">Docker, Jenkins, Git, GitHub Actions, CI/CD, Postman, Linux</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Work Experience -->
+    <section>
+      <h2 class="section-title">Work Experience</h2>
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-company">PSG Software Technologies</span> — <span class="item-role">Software
+              Engineer</span>
+          </div>
+          <div class="item-date">Jan 2024 – Present | Coimbatore, India</div>
+        </div>
+        <ul class="bullets">
+          <li>
+            <strong>Architected</strong> a centralized <strong>Keycloak IAM module</strong> (MERN) automating realm, client, and RBAC provisioning across <strong>250+ government colleges</strong>, reducing onboarding turnaround by <strong>70%</strong>.
+          </li>
+          <li>
+            <strong>Constructed</strong> mission-critical examination lifecycle pipelines (Node.js & MongoDB) for student enrollment, batch allocation, mark entry, and moderation for <strong>50,000+ students</strong> with <strong>zero data discrepancies</strong>.
+          </li>
+          <li>
+            <strong>Designed</strong> extensible MongoDB data models and REST APIs managing <strong>40+ degree regulations</strong>, grading rules, evaluation patterns, and OBE curriculum mappings across multi-department curricula.
+          </li>
+          <li>
+            <strong>Containerized</strong> backend microservices with <strong>Docker</strong>, reduced database query latency by <strong>45%</strong> via compound MongoDB indexing, and automated <strong>CI/CD</strong> delivery pipelines across production environments.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section>
+      <h2 class="section-title">Projects</h2>
+
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">MAISON — House Rental Management Platform</span>
+            <span class="item-tech"> | React.js, Node.js, Express.js, MongoDB, REST, JWT</span>
+          </div>
+          <div class="item-date"><a href="https://houserentalmanagement.netlify.app/" target="_blank"
+              class="live-link">🔗 Live Demo</a></div>
+        </div>
+        <ul class="bullets">
+          <li><strong>Launched</strong> a full-stack rental platform supporting <strong>100+ property listings</strong> with multi-criteria search, dynamic filtering, and direct inquiry management.</li>
+          <li><strong>Implemented</strong> secure token-based authentication (JWT) and <strong>role-based access control</strong> protecting user profile operations and listing administration.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">BuildPulse — Microservices Health & Build Monitor</span>
+            <span class="item-tech"> | Native Node.js, SSE, REST APIs, Docker, Google Chat Webhooks</span>
+          </div>
+          <div class="item-date"><a href="https://github.com/santhosh1217" target="_blank"
+              class="live-link">💻 GitHub</a></div>
+        </div>
+        <ul class="bullets">
+          <li><strong>Created</strong> a zero-dependency, real-time Node.js monitor tracking sub-second uptime and latency across <strong>12+ microservices</strong>, cutting incident notification response time by <strong>85%</strong>.</li>
+          <li><strong>Engineered</strong> fault-tolerant health monitoring via asynchronous polling, real-time browser sync via <span style="white-space: nowrap;">Server-Sent Events (SSE), and</span> Google Chat webhook alerts.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">NAAC Accreditation Web Portal</span>
+            <span class="item-tech"> | HTML5, CSS3, JavaScript</span>
+          </div>
+          <div class="item-date"><a href="https://www.pcet.ac.in/NAAC/firstpage.html" target="_blank"
+              class="live-link">🔗 Live Demo</a></div>
+        </div>
+        <ul class="bullets">
+          <li><strong>Spearheaded</strong> an institutional compliance portal digitizing <strong>500+ accreditation records</strong> across 7 criteria modules, accelerating peer evaluation committee audit cycles by <strong>60%</strong>.</li>
+          <li><strong>Enhanced</strong> asset delivery and navigation taxonomy across all viewports, ensuring <strong>sub-second document retrieval</strong> and high accessibility compliance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2 class="section-title">Education</h2>
+      <div class="edu-grid">
+        <div>
+          <strong>Park College of Engineering & Technology</strong> — <span style="color: var(--secondary);">B.E. in Computer Science & Engineering</span>
+        </div>
+        <div class="item-date">Oct 2020 – Jun 2024 | CGPA: <strong>7.91 / 10.0</strong></div>
+      </div>
+      <div class="coursework">
+        <strong>Relevant Coursework:</strong> Data Structures & Algorithms, Object-Oriented Programming,
+        Database Management Systems, Operating Systems, Computer Networks, Software Engineering.
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section>
+      <h2 class="section-title">Certifications</h2>
+      <div class="certs-row">
+        <span><strong>Full Stack Development</strong> — Infosys (2024)</span>
+        <span class="separator">•</span>
+        <span><strong>JavaScript (Intermediate)</strong> — HackerRank (2023)</span>
+        <span class="separator">•</span>
+        <span><strong>Python Programming</strong> — Guvi (2023)</span>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
